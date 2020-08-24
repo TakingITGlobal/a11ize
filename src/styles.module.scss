@@ -1,0 +1,255 @@
+// NOTE: ONLY USE em IN THIS FILE
+// Using rem will break when changing font size override
+
+$primary-color: red !default;
+$secondary-color: blue !default;
+$body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
+  sans-serif !default;
+
+/*
+  UI STYLING
+*/
+.a11y {
+  position: fixed;
+  right: 0;
+  top: 25%;
+  z-index: 100;
+  line-height: 0;
+
+  button {
+    position: relative;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.6);
+    transition: all 0.25s;
+    text-align: center;
+    padding: 0.5em;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.a11y-button {
+  margin: 0;
+  font-size: 16px;
+  z-index: 100;
+}
+
+.reset-button {
+  visibility: hidden;
+  font-size: 16px;
+  overflow: hidden;
+  transform: translateX(100%);
+  z-index: 99;
+  .active & {
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.a11y-menu {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  background-color: #444;
+  transition: all 0.5s;
+  visibility: hidden;
+  max-height: 0;
+  letter-spacing: normal;
+
+  .active & {
+    visibility: visible;
+    max-height: 300px;
+  }
+
+  &,
+  & *:not(h2) {
+    font-size: 16px !important;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+  }
+}
+
+.menu-wrapper {
+  white-space: nowrap;
+  margin: 1em;
+}
+
+.option {
+  display: inline-block;
+  border-radius: 5px;
+  background-color: white;
+  padding: 1em;
+  margin: 0em 0.5em;
+  height: 11em;
+}
+
+.button {
+  width: 2.4em;
+  border-radius: 5px;
+  border: 1px solid black;
+  position: relative;
+
+  &.switch {
+    width: 5em;
+
+    &::before {
+      display: block;
+      position: absolute;
+      height: 1.75em;
+      width: 1.75em;
+      margin: 0.25em;
+      border-radius: 5px;
+      background: $primary-color;
+      content: ' ';
+      transition: all 0.5s;
+      left: 0;
+      top: 0;
+    }
+    &.on::before {
+      left: 100%;
+      transform: translateX(-2.25em);
+      background: $secondary-color;
+    }
+  }
+}
+
+.input {
+  margin-top: 1em;
+  text-align: center;
+
+  .icon {
+    margin: 0 0.25em;
+  }
+
+  input,
+  button,
+  select {
+    display: inline-block;
+    height: 2.4em;
+    margin: 0 0.25em;
+    padding: 0 0.5em;
+    text-align: center;
+  }
+
+  select {
+    padding-right: 1.5em;
+    background-position: right -1em center;
+  }
+
+  input {
+    width: 5em;
+  }
+
+  input[type='number'] {
+    // hide spinner buttons
+    appearance: textfield;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none;
+    }
+  }
+
+  option[value='Default'] {
+    font-family: $body-font-family !important;
+  }
+}
+
+/*
+  FONTS
+*/
+// reset fonts
+.wrapper:not(.font-default) * {
+  font-family: inherit !important;
+}
+// font selections
+.font-times,
+option[value='Times'] {
+  font-family: 'Times New Roman', Times, serif !important;
+}
+.font-dyslexic,
+option[value='Dyslexic'] {
+  font-family: 'Open Dyslexic', sans-serif !important;
+}
+.font-arial,
+option[value='Arial'] {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+.font-verdana,
+option[value='Verdana'] {
+  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+}
+
+/*
+  TYPOGRAPHY
+*/
+// reset line spacing
+.line-spaced * {
+  line-height: inherit !important;
+}
+
+/*
+  HIGH CONTRAST THEMES
+*/
+.selected {
+  font-weight: bold;
+  box-shadow: 0 0 3px 3px black;
+}
+// image elements
+.wrapper:not(.theme-default) {
+  svg,
+  :global(img:not(.no-a11y-transform)),
+  // support gatsby-image nonsense
+  :global(.gatsby-image-wrapper:not(.no-a11y-transform)) img {
+    filter: url(#themify-image) !important;
+  }
+}
+// non-image elements
+// TODO: parametrize
+@mixin theme($name, $fg, $bg) {
+  button.theme-#{$name},
+  button.theme-#{$name} *,
+  .theme-#{$name} *:not(img):not(svg) {
+    color: $fg !important;
+    background: $bg !important;
+    border-color: $fg !important;
+    &::placeholder {
+      color: $fg;
+    }
+  }
+}
+@include theme('bw', black, white);
+@include theme('wb', white, black);
+@include theme('by', black, yellow);
+@include theme('yb', yellow, black);
+@include theme('brown', black, #bb9966);
+
+/*
+  HIGHLIGHT CLICKABLE ELEMENTS
+*/
+.clickable-highlight {
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    font-size: 150%;
+    border: 1px solid black;
+    font-weight: bold;
+  }
+  a,
+  button,
+  input[type='submit'] {
+    text-decoration: underline !important;
+  }
+}
+
+/*
+  TABLE OF CONTENTS
+*/
+.toc {
+  text-align: left;
+  span:first-child {
+    font-size: 1.5rem;
+  }
+}

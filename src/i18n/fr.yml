@@ -1,0 +1,38 @@
+default: Défault
+up: Augmente
+down: Diminue
+toggle: Bascule
+on: Active
+off: Désactive
+currently: maintenant
+toggleOn: activé(e)
+toggleOff: désactivé(e)
+
+open: Ouvre le menu de l'accessibilité
+close: Ferme le menu de l'accessibilité
+reset: Remets
+resetLabel: Remets les réglages de l'accessabilité
+
+textSize: La Taille de Police
+textSizeLabel: Ajuste la taille de la police
+fontFamily: La Police
+fontFamilyLabel: Change la police de charactère utilisée
+lineHeight: L'Interligne
+lineHeightLabel: Ajuste l'interligne entre les lignes de texte
+letterSpacing: L'Espacement des Lettres
+letterSpacingLabel: Ajuste l'espacement entre les lettres
+wordSpacing: L'Espacement des Mots
+wordSpacingLabel: Ajuste l'espacement entre les mots
+theme: Contraste
+themeLabel: Change la couleur de la texte et du fond
+highlightClickables: Soulinge les Données
+highlightClickablesLabel: Soulinge les sections interactifs de la page
+toc: La Table des Matières
+tocLabel: Affiche une table des matières
+
+themeDefault: Thème défault
+themeBw: "Monochrome : Noir sur blanche"
+themeWb: "Monochrome inversée : Blanche sur noir"
+themeBy: "Haute contraste : Noir sur jaune"
+themeYb: "Haute contraste inversée : Jaune sur noir"
+themeBrown: Blanche sur brun

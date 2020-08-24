@@ -1,0 +1,38 @@
+default: Default
+up: Increase
+down: Decrease
+toggle: Toggle
+on: "On"
+off: "Off"
+currently: currently
+toggleOn: "on"
+toggleOff: "off"
+
+open: Open the accessibility menu
+close: Close the accessibility menu
+reset: Reset
+resetLabel: Reset accessibility settings
+
+textSize: Text Size
+textSizeLabel: Adjust the text size
+fontFamily: Font Style
+fontFamilyLabel: Change the font family used
+lineHeight: Line Spacing
+lineHeightLabel: Adjust the space between lines of text
+letterSpacing: Letter Spacing
+letterSpacingLabel: Adjust the space between letters
+wordSpacing: Word Spacing
+wordSpacingLabel: Adjust the space between words
+theme: Contrast
+themeLabel: Change the text and background colours
+highlightClickables: Enhance Inputs
+highlightClickablesLabel: Highlight interactive parts of the page
+toc: Table of Contents
+tocLabel: Generate a table of contents
+
+themeDefault: Default theme
+themeBw: "Monochrome: Black on white"
+themeWb: "Inverted monochrome: White on black"
+themeBy: "High contrast: Black on yellow"
+themeYb: "Inverted high contrast: Yellow on black"
+themeBrown: White on brown
