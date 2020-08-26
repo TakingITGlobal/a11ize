@@ -1,6 +1,6 @@
 {
   "name": "a11ize",
-  "version": "0.1.4",
+  "version": "0.1.0",
   "description": "A React and JS Accessibility Toolkit",
   "main": "dist/index.js",
   "author": "TakingITGlobal",
