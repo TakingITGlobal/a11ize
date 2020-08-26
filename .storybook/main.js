@@ -1,22 +1,13 @@
-const path = require('path');
+// your app's webpack.config.js
+const custom = require('../webpack.config.js');
 
 module.exports = {
-  stories: ['../src/*.stories.[tj]s'],
+  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: ['@storybook/addon-knobs/register'],
-  webpackFinal: async (config, { configType }) => {
-    config.module.rules.push({
-      test: /\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader'],
-      include: path.resolve(__dirname, '../src'),
-    });
-
-    config.module.rules.push({
-      test: /\.ya?ml$/,
-      type: 'json', // Required by Webpack v4
-      use: 'yaml-loader',
-      include: path.resolve(__dirname, '../src'),
-    });
-
-    return config;
+  webpackFinal: (config) => {
+    return {
+      ...config,
+      module: { ...config.module, rules: custom.module.rules },
+    };
   },
 };

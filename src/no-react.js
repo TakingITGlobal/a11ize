@@ -1,2 +1,26 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'regenerator-runtime/runtime.js';
+import getBundleURL from './getBundleUrl';
 // wrapper goes here
 // compile to dist/no-react.js using babel
+// ok what tf do we put here
+
+import A11yWrapper from './components/A11yWrapper';
+
+const wrapper = document.getElementById('accessible-content');
+const children = wrapper.innerHTML;
+
+// const path = document.currentScript.src;
+// const mydir = `${path.split('/').slice(0, -1).join('/')}/`;
+
+// eslint-disable-next-line camelcase, no-undef
+__webpack_public_path__ = getBundleURL();
+// console.log(getBundleURL());
+
+if (wrapper) {
+  ReactDOM.render(
+    <A11yWrapper dangerouslySet={children} id="a11y-module" />,
+    wrapper
+  );
+}

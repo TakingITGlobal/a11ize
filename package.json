@@ -8,8 +8,9 @@
   "private": true,
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
+    "@babel/runtime": "^7.11.2",
     "@storybook/addon-knobs": "^6.0.16",
-    "@storybook/react": "^6.0.16",
+    "@storybook/react": "^6.0.17",
     "classnames": "^2.2.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -18,12 +19,20 @@
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.4",
+    "@babel/plugin-transform-runtime": "^7.11.0",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
+    "@storybook/addon-actions": "^6.0.17",
+    "@storybook/addon-essentials": "^6.0.17",
+    "@storybook/addon-links": "^6.0.17",
+    "@storybook/node-logger": "^6.0.17",
+    "@storybook/preset-create-react-app": "^3.1.4",
     "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^4.2.2",
+    "dynamic-public-path-webpack-plugin": "^1.0.4",
     "eslint": "^7.7.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.11.0",
@@ -32,23 +41,32 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.6",
     "file-loader": "^6.0.0",
+    "mini-css-extract-plugin": "^0.10.0",
+    "node-sass": "^4.14.1",
     "postcss-loader": "^3.0.0",
     "postcss-modules": "^3.2.2",
     "postcss-preset-env": "^6.7.0",
+    "preact": "^10.4.7",
     "prettier": "^2.1.0",
-    "sass": "^1.26.10",
-    "sass-loader": "^10.0.0",
+    "react-is": "^16.13.1",
+    "react-scripts": "^3.4.3",
+    "sass-loader": "^10.0.1",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
+    "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.12",
+    "webpack-node-externals": "^2.5.2",
     "yaml-loader": "^0.6.0"
   },
   "scripts": {
     "start": "start-storybook -p 8080",
-    "buildSass": "sass src/:dist/"
+    "build": "webpack --mode production",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "browserslist": [
-    ">0.25%",
-    "not dead"
+    "last 1 version",
+    "> 1%",
+    "IE 10"
   ]
 }

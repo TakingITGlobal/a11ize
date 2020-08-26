@@ -1,10 +1,11 @@
 // NOTE: ONLY USE em IN THIS FILE
 // Using rem will break when changing font size override
 
-$primary-color: red !default;
-$secondary-color: blue !default;
+$primary-color: #921d5b;
+$secondary-color: #01364c;
+$a11y-button-color: #fff;
 $body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
-  sans-serif !default;
+  sans-serif;
 
 /*
   UI STYLING
@@ -31,6 +32,9 @@ $body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
   margin: 0;
   font-size: 16px;
   z-index: 100;
+  background-color: $primary-color;
+  color: $a11y-button-color;
+  border: 1px solid rgba(0,0,0,0);
 }
 
 .reset-button {
@@ -38,6 +42,9 @@ $body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
   font-size: 16px;
   overflow: hidden;
   transform: translateX(100%);
+  background-color: $secondary-color;
+  color: $a11y-button-color;
+  border: 1px solid rgba(0,0,0,0);
   z-index: 99;
   .active & {
     visibility: visible;
@@ -89,6 +96,7 @@ $body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
   border-radius: 5px;
   border: 1px solid black;
   position: relative;
+  background-color: #fff;
 
   &.switch {
     width: 5em;
