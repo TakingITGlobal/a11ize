@@ -1,22 +1,23 @@
 // react button goes here
-import React, { useState, useEffect, useRef } from "react";
-import cx from "classnames";
+import React, { useState, useEffect, useRef } from 'react';
+import cx from 'classnames';
 import {
   FaTextHeight,
   FaTextWidth,
   FaUniversalAccess,
   FaBan,
-} from "react-icons/fa";
-import { MdFormatLineSpacing } from "react-icons/md";
-import styles from "./A11yWrapper.module.scss";
-import ColorizeFilter from "../ColorizeFilter";
+} from 'react-icons/fa';
+
+import { MdFormatLineSpacing } from 'react-icons/md';
+import styles from './A11yWrapper.module.scss';
+import ColorizeFilter from '../ColorizeFilter';
 
 const i18n = {
   en: require('../i18n/en.yml'),
-  fr: require('../i18n/fr.yml')
-}
+  fr: require('../i18n/fr.yml'),
+};
 
-const AccessibilityButton = ({ id, children, dangerouslySet, lang = "en" }) => {
+const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
   const AccessibilityPanel = ({ id, heading, label, children }) => {
     return (
       <div className={styles.option}>
@@ -39,7 +40,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = "en" }) => {
     }
   };
   // font family
-  const [fontFamily, setFontFamily] = useState("Default");
+  const [fontFamily, setFontFamily] = useState('Default');
   // line height
   const [lineSpacing, setLineSpacingRaw] = useState(1);
   const setLineSpacing = (value) => {
@@ -62,42 +63,42 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = "en" }) => {
     }
   };
   // theme
-  const [theme, setTheme] = useState("Default");
+  const [theme, setTheme] = useState('Default');
   // switches
   const [clickableHighlight, setClickableHighlight] = useState(false);
   const [tableOfContents, setTableOfContents] = useState(false);
 
   useEffect(() => {
-    if (typeof document === "object") {
+    if (typeof document === 'object') {
       // modify definition of 1 rem
       document.documentElement.style.fontSize = `${fontScale}rem`;
       // push window resize event for polyfills
-      if (typeof window === "object") {
-        const evt = document.createEvent("Event")
-        evt.initEvent("resize", true, false)
-        window.dispatchEvent(evt)
+      if (typeof window === 'object') {
+        const evt = document.createEvent('Event');
+        evt.initEvent('resize', true, false);
+        window.dispatchEvent(evt);
       }
     }
   }, [fontScale, fontFamily, lineSpacing, letterSpacing, wordSpacing]);
 
   // persist on page changes
   const restoreState = () => {
-    if (typeof window === "object") {
-      const stateString = window.localStorage.getItem("a11y-state");
+    if (typeof window === 'object') {
+      const stateString = window.localStorage.getItem('a11y-state');
       const state = stateString ? JSON.parse(stateString) : {};
       setActive(false);
       setFontScaleRaw(state.fontScale || 1);
-      setFontFamily(state.fontFamily || "Default");
+      setFontFamily(state.fontFamily || 'Default');
       setLineSpacingRaw(state.lineSpacing || 1);
       setLetterSpacingRaw(state.letterSpacing || 0);
       setWordSpacingRaw(state.wordSpacing || 0);
-      setTheme(state.theme || "Default");
+      setTheme(state.theme || 'Default');
       setClickableHighlight(state.clickableHighlight || false);
       setTableOfContents(state.tableOfContents || false);
     }
   };
   useEffect(() => {
-    if (typeof window === "object") {
+    if (typeof window === 'object') {
       const state = {
         fontScale,
         fontFamily,
@@ -108,7 +109,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = "en" }) => {
         clickableHighlight,
         tableOfContents,
       };
-      window.localStorage.setItem("a11y-state", JSON.stringify(state));
+      window.localStorage.setItem('a11y-state', JSON.stringify(state));
     }
   }, [
     fontScale,
@@ -126,7 +127,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = "en" }) => {
   useEffect(async () => {
     restoreState();
     // lazily load font
-    await import("../opendyslexic.scss");
+    await import('../opendyslexic.scss');
   }, []);
   // i18n helpers
   const toggleText = (what, on) =>
@@ -136,25 +137,25 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = "en" }) => {
   const increase = (what) => `${text.up} ${what.toLowerCase()}`;
   const decrease = (what) => `${text.down} ${what.toLowerCase()}`;
 
-  const themes = ["Default", "Bw", "Wb", "By", "Yb", "Brown"];
+  const themes = ['Default', 'Bw', 'Wb', 'By', 'Yb', 'Brown'];
 
   const headers = contentRef.current
-    ? Array.from(contentRef.current.querySelectorAll("h1, h2, h3, h4, h5, h6"))
+    ? Array.from(contentRef.current.querySelectorAll('h1, h2, h3, h4, h5, h6'))
     : [];
-  let toc = "";
+  let toc = '';
   let currentHeader = 0;
   headers.forEach((header) => {
     const level = Number.parseInt(header.tagName.substring(1), 10);
     if (level > currentHeader) {
-      toc += new Array(level - currentHeader + 1).join("<ul>");
+      toc += new Array(level - currentHeader + 1).join('<ul>');
     } else if (level < currentHeader) {
-      toc += new Array(currentHeader - level + 1).join("</ul>");
+      toc += new Array(currentHeader - level + 1).join('</ul>');
     }
 
-    let href = header.getAttribute("id");
+    let href = header.getAttribute('id');
     if (!href) {
-      const slug = header.innerHTML.toLowerCase().replace(/[^0-9a-z]+/g, "-");
-      header.setAttribute("id", slug);
+      const slug = header.innerHTML.toLowerCase().replace(/[^0-9a-z]+/g, '-');
+      header.setAttribute('id', slug);
       href = slug;
     }
     toc += `
@@ -164,7 +165,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = "en" }) => {
     `;
     currentHeader = level;
   });
-  if (currentHeader) toc += new Array(currentHeader + 1).join("</ul>");
+  if (currentHeader) toc += new Array(currentHeader + 1).join('</ul>');
 
   return (
     // menu
@@ -178,7 +179,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = "en" }) => {
           >
             <FaTextHeight
               className={styles.icon}
-              style={{ fontSize: "20px" }}
+              style={{ fontSize: '20px' }}
               role="presentation"
             />
             <button
@@ -209,7 +210,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = "en" }) => {
             </button>
             <FaTextHeight
               className={styles.icon}
-              style={{ fontSize: "25px" }}
+              style={{ fontSize: '25px' }}
               role="presentation"
             />
           </AccessibilityPanel>
@@ -239,7 +240,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = "en" }) => {
           >
             <MdFormatLineSpacing
               className={styles.icon}
-              style={{ fontSize: "20px" }}
+              style={{ fontSize: '20px' }}
               role="presentation"
             />
             <button
@@ -270,7 +271,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = "en" }) => {
             </button>
             <MdFormatLineSpacing
               className={styles.icon}
-              style={{ fontSize: "25px" }}
+              style={{ fontSize: '25px' }}
               role="presentation"
             />
           </AccessibilityPanel>
@@ -281,7 +282,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = "en" }) => {
           >
             <FaTextWidth
               className={styles.icon}
-              style={{ fontSize: "20px" }}
+              style={{ fontSize: '20px' }}
               role="presentation"
             />
             <button
@@ -312,7 +313,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = "en" }) => {
             </button>
             <FaTextWidth
               className={styles.icon}
-              style={{ fontSize: "25px" }}
+              style={{ fontSize: '25px' }}
               role="presentation"
             />
           </AccessibilityPanel>
@@ -360,7 +361,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = "en" }) => {
                   aria-label={`${text[`theme${className}`]}${
                     theme === className
                       ? ` (${text.toggleOn.toLowerCase()})`
-                      : ""
+                      : ''
                   }`}
                   className={cx(
                     styles.button,
@@ -370,7 +371,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = "en" }) => {
                   type="button"
                   onClick={() => setTheme(className)}
                 >
-                  {className === "Default" ? <FaBan /> : "Aa"}
+                  {className === 'Default' ? <FaBan /> : 'Aa'}
                 </button>
               ))}
 
@@ -378,22 +379,22 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = "en" }) => {
               <svg
                 height="0"
                 width="0"
-                style={{ position: "absolute" }}
+                style={{ position: 'absolute' }}
                 aria-hidden="true"
               >
                 <ColorizeFilter
                   id="themify-image"
                   dark={
-                    { Bw: "#ffffff", By: "#ffff00", Brown: "#bb9966" }[theme] ||
-                    "#000000"
+                    { Bw: '#ffffff', By: '#ffff00', Brown: '#bb9966' }[theme] ||
+                    '#000000'
                   }
                   light={
                     {
-                      Bw: "#000000",
-                      By: "#000000",
-                      Yb: "#ffff00",
-                      Brown: "#000000",
-                    }[theme] || "#ffffff"
+                      Bw: '#000000',
+                      By: '#000000',
+                      Yb: '#ffff00',
+                      Brown: '#000000',
+                    }[theme] || '#ffffff'
                   }
                   wcagClamp
                 />
@@ -447,11 +448,11 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = "en" }) => {
       </form>
       <div className={styles.a11y}>
         <button
-          className={cx("button secondary", styles.a11yButton)}
+          className={cx('button secondary', styles.a11yButton)}
           type="button"
           onClick={() => {
-            if (typeof window === "object" && !active)
-              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+            if (typeof window === 'object' && !active)
+              window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
             setActive(!active);
           }}
           aria-label={active ? text.close : text.open}
@@ -460,11 +461,11 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = "en" }) => {
         </button>
         <br />
         <button
-          className={cx("button", styles.resetButton)}
+          className={cx('button', styles.resetButton)}
           type="button"
           onClick={() => {
-            if (typeof window === "object")
-              window.localStorage.removeItem("a11y-state");
+            if (typeof window === 'object')
+              window.localStorage.removeItem('a11y-state');
             restoreState();
           }}
           aria-label={text.resetLabel}
@@ -484,7 +485,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = "en" }) => {
         style={{
           wordSpacing: `${wordSpacing}px`,
           letterSpacing: `${letterSpacing}px`,
-          lineHeight: lineSpacing > 1 ? `${lineSpacing * 1.6}` : "normal",
+          lineHeight: lineSpacing > 1 ? `${lineSpacing * 1.6}` : 'normal',
         }}
         ref={contentRef}
       >
@@ -500,9 +501,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = "en" }) => {
         )}
         {children}
         {dangerouslySet && (
-          <div
-          dangerouslySetInnerHTML={{__html: dangerouslySet}}
-          />
+          <div dangerouslySetInnerHTML={{ __html: dangerouslySet }} />
         )}
       </div>
     </div>

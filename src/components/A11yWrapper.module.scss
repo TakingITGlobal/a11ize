@@ -14,7 +14,7 @@ $body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
   position: fixed;
   right: 0;
   top: 25%;
-  z-index: 100;
+  z-index: 2147483647;
   line-height: 0;
 
   button {
@@ -62,6 +62,7 @@ $body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
   letter-spacing: normal;
 
   .active & {
+    z-index: 2147483647;
     visibility: visible;
     max-height: 300px;
   }

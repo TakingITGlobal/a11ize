@@ -3,7 +3,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const nodeSass = require('node-sass');
-// const DynamicPublicPathPlugin = require('dynamic-public-path-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
@@ -101,7 +100,7 @@ module.exports = [
   },
   {
     // entry: { 'no-react': './src/no-react.js', index: './src/index.js' },
-    entry: { app: ['./src/no-react.js'] },
+    entry: './src/no-react.js',
     // externals: [nodeExternals()],
     output: {
       filename: 'index.js',
@@ -112,7 +111,7 @@ module.exports = [
     },
     resolve: {
       mainFields: ['module', 'main'],
-      extensions: ['.ts', '.tsx', '.js'],
+      // extensions: ['.ts', '.tsx', '.js'],
       alias: {
         react: 'preact/compat',
         'react-dom/test-utils': 'preact/test-utils',

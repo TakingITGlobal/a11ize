@@ -8,6 +8,8 @@ import getBundleURL from './getBundleUrl';
 
 import A11yWrapper from './components/A11yWrapper';
 
+console.log('asdf');
+
 const wrapper = document.getElementById('accessible-content');
 const children = wrapper.innerHTML;
 
@@ -16,9 +18,10 @@ const children = wrapper.innerHTML;
 
 // eslint-disable-next-line camelcase, no-undef
 __webpack_public_path__ = getBundleURL();
-// console.log(getBundleURL());
+console.log(`Served from ${getBundleURL()}`);
 
 if (wrapper) {
+  console.log('Wrapper found! Loading button...');
   ReactDOM.render(
     <A11yWrapper dangerouslySet={children} id="a11y-module" />,
     wrapper
