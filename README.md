@@ -24,11 +24,11 @@ Wrap the content you want to be modified by a11ize in the `AccessibilityButton`
 tag.
 
 ```jsx
-  import AccessibilityButton from 'a11ize';
+  import A11yWrapper from 'a11ize';
   ...
-  <AccessibilityButton {...options}>
+  <A11yWrapper {...options}>
     Site content here.
-  </AccessibilityButton>
+  </A11yWrapper>
 ```
 
 ### Non-React usage
