@@ -1,4 +1,4 @@
 node_modules
-dist
 react-inspector
 testing-grounds
+dist/react
