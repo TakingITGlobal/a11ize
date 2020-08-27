@@ -1,6 +1,6 @@
 {
   "name": "@takingitglobal/a11ize",
-  "version": "0.1.1-alpha.1",
+  "version": "0.0.0-development",
   "description": "A React and JS Accessibility Toolkit",
   "repository": "git://github.com/takingitglobal/a11ize.git",
   "main": "dist/index.js",
@@ -16,9 +16,6 @@
     "react-dom": "^16.13.1",
     "react-icons": "^3.11.0"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "sideEffects": false,
   "devDependencies": {
     "@babel/cli": "^7.10.5",
@@ -26,6 +23,8 @@
     "@babel/plugin-transform-runtime": "^7.11.0",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
+    "@google/semantic-release-replace-plugin": "^1.0.0",
+    "@semantic-release/git": "^9.0.0",
     "@storybook/addon-actions": "^6.0.17",
     "@storybook/addon-essentials": "^6.0.17",
     "@storybook/addon-links": "^6.0.17",
@@ -44,13 +43,13 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.6",
     "file-loader": "^6.0.0",
-    "mini-css-extract-plugin": "^0.10.0",
     "node-sass": "^4.14.1",
     "preact": "^10.4.7",
     "prettier": "^2.1.0",
     "react-is": "^16.13.1",
     "react-scripts": "^3.4.3",
     "sass-loader": "^10.0.1",
+    "semantic-release": "^17.1.1",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
     "webpack-bundle-analyzer": "^3.8.0",
@@ -61,11 +60,50 @@
   "scripts": {
     "build": "webpack --mode production",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "semantic-release": "semantic-release"
   },
   "browserslist": [
     "last 1 version",
     "> 1%",
     "IE 10"
-  ]
+  ],
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      [
+        "@google/semantic-release-replace-plugin",
+        {
+          "replacements": [
+            {
+              "files": [
+                "README.md"
+              ],
+              "from": "takingitglobal/a11ize@.*?/",
+              "to": "takingitglobal/a11ize@${nextRelease.version}/",
+              "results": [
+                {
+                  "file": "README.md",
+                  "hasChanged": true,
+                  "numMatches": 1,
+                  "numReplacements": 1
+                }
+              ],
+              "countMatches": true
+            }
+          ]
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "README.md"
+          ]
+        }
+      ]
+    ]
+  }
 }

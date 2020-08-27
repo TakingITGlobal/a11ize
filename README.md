@@ -33,12 +33,10 @@ tag.
 
 ### Non-React usage
 
-```js
-import AccessibilityButton from "a11ize/dist/no-react";
-AccessibilityButton.createButton("#accessible-content", options);
-```
+Add the id of `accessible-content` to an element so that it wraps the content you want a11ize to affect (generally the entire page).
 
 ```html
+<script src="https://cdn.jsdelivr.net/gh/takingitglobal/a11ize@0.1.1-alpha.1/dist/no-react/index.js">
 <div id="accessible-content">
   Site content here.
 </div>
@@ -46,6 +44,6 @@ AccessibilityButton.createButton("#accessible-content", options);
 
 ## Font Usage
 
-a11y-button bundles the Open Dyslexic font face by default. Please make sure to
+a11ize bundles the Open Dyslexic font face by default. Please make sure to
 abide by their licensing rules if you choose to use Open Dyslexic in your own
 projects.
