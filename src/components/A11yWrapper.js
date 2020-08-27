@@ -86,6 +86,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
     if (typeof window === 'object') {
       const stateString = window.localStorage.getItem('a11y-state');
       const state = stateString ? JSON.parse(stateString) : {};
+      console.log(state);
       setActive(false);
       setFontScaleRaw(state.fontScale || 1);
       setFontFamily(state.fontFamily || 'Default');
@@ -448,7 +449,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
       </form>
       <div className={styles.a11y}>
         <button
-          className={cx('button secondary', styles.a11yButton)}
+          className={cx(styles.a11yButton)}
           type="button"
           onClick={() => {
             if (typeof window === 'object' && !active)

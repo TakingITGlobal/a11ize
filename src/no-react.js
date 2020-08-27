@@ -22,7 +22,11 @@ console.log(`Served from ${getBundleURL()}`);
 if (wrapper) {
   console.log('Wrapper found! Loading button...');
   ReactDOM.render(
-    <A11yWrapper dangerouslySet={children} language={language} id="a11y-module" />,
+    <A11yWrapper
+      dangerouslySet={children}
+      language={language}
+      id="a11y-module"
+    />,
     wrapper
   );
 }

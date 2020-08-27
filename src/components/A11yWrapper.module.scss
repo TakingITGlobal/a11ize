@@ -2,6 +2,7 @@
 // Using rem will break when changing font size override
 
 $primary-color: #921d5b;
+$primary-color-hover: #731749;
 $secondary-color: #01364c;
 $a11y-button-color: #fff;
 $body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
@@ -30,16 +31,24 @@ $body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
 
 .a11y-button {
   margin: 0;
-  font-size: 16px;
   z-index: 100;
   background-color: $primary-color;
   color: $a11y-button-color;
   border: 1px solid rgba(0,0,0,0);
+
+  &:hover {
+    background-color: $primary-color-hover;
+    margin: 0;
+    z-index: 100;
+    background-color: $primary-color;
+    color: $a11y-button-color;
+    border: 1px solid rgba(0,0,0,0);
+  }
 }
 
 .reset-button {
   visibility: hidden;
-  font-size: 16px;
+  font-size: 1rem;
   overflow: hidden;
   transform: translateX(100%);
   background-color: $secondary-color;
@@ -49,6 +58,12 @@ $body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
   .active & {
     visibility: visible;
     transform: translateY(0);
+  }
+
+  &:hover {
+    padding: 0.5em;
+    background-color: $secondary-color;
+    color: $a11y-button-color;
   }
 }
 
@@ -60,6 +75,7 @@ $body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
   visibility: hidden;
   max-height: 0;
   letter-spacing: normal;
+  margin: 0;
 
   .active & {
     z-index: 2147483647;
@@ -98,7 +114,8 @@ $body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
   border: 1px solid black;
   position: relative;
   background-color: #fff;
-
+  color: black;
+  
   &.switch {
     width: 5em;
 
