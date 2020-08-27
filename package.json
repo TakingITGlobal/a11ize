@@ -87,8 +87,8 @@
               "files": [
                 "README.md"
               ],
-              "from": "takingitglobal/a11ize@.*?/",
-              "to": "takingitglobal/a11ize@${nextRelease.version}/",
+              "from": "/a11ize@.*?/",
+              "to": "/a11ize@${nextRelease.version}/",
               "results": [
                 {
                   "file": "README.md",
