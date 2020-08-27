@@ -36,7 +36,7 @@ tag.
 Add the id of `accessible-content` to an element so that it wraps the content you want a11ize to affect (generally the entire page).
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/takingitglobal/a11ize@0.1.1-alpha.1/dist/no-react/index.js">
+<script src="https://cdn.jsdelivr.net/gh/takingitglobal/a11ize@1.0.0-alpha.1/dist/no-react/index.js">
 <div id="accessible-content">
   Site content here.
 </div>
