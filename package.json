@@ -1,6 +1,6 @@
 {
   "name": "@takingitglobal/a11ize",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.1",
   "description": "A React and JS Accessibility Toolkit",
   "repository": "git://github.com/takingitglobal/a11ize.git",
   "main": "dist/index.js",
