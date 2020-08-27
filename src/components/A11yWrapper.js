@@ -123,7 +123,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
   ]);
 
   // initial load
-  const text = i18n[lang];
+  const text = i18n[lang] ? i18n[lang] : i18n['en'];
   useEffect(async () => {
     restoreState();
     // lazily load font
