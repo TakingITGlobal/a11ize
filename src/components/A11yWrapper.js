@@ -448,7 +448,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
       </form>
       <div className={styles.a11y}>
         <button
-          className={cx('button secondary', styles.a11yButton)}
+          className={cx(styles.a11yButton)}
           type="button"
           onClick={() => {
             if (typeof window === 'object' && !active)

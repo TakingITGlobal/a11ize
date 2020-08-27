@@ -60,6 +60,7 @@ $body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
   visibility: hidden;
   max-height: 0;
   letter-spacing: normal;
+  margin: 0;
 
   .active & {
     z-index: 2147483647;
@@ -98,7 +99,8 @@ $body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
   border: 1px solid black;
   position: relative;
   background-color: #fff;
-
+  color: black;
+  
   &.switch {
     width: 5em;
 
