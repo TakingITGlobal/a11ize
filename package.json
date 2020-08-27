@@ -6,6 +6,9 @@
   "main": "dist/index.js",
   "author": "TakingITGlobal",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
     "@babel/runtime": "^7.11.2",
