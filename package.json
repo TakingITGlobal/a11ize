@@ -1,5 +1,5 @@
 {
-  "name": "a11ize",
+  "name": "@TakingITGlobal/a11ize",
   "version": "0.1.0",
   "description": "A React and JS Accessibility Toolkit",
   "main": "dist/index.js",
