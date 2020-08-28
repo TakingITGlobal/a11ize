@@ -4,7 +4,7 @@ import getBundleURL from './getBundleUrl';
 import A11yWrapper from './components/A11yWrapper';
 import 'regenerator-runtime/runtime.js';
 
-const language = navigator.language.split('-')[0];
+const language = navigator.language ? navigator.language.split('-')[0] : 'en';
 
 const wrapper = document.getElementById('accessible-content');
 const children = wrapper.innerHTML;
