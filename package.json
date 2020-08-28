@@ -12,12 +12,12 @@
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
     "@babel/runtime": "^7.11.2",
-    "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@storybook/addon-knobs": "^6.0.16",
     "@storybook/react": "^6.0.17",
     "classnames": "^2.2.6",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.11.0"
   },
   "sideEffects": false,
   "devDependencies": {
