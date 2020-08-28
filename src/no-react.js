@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import getBundleURL from './getBundleUrl';
 import A11yWrapper from './components/A11yWrapper';
-import 'regenerator-runtime/runtime.js';
 
 const language = navigator.language ? navigator.language.split('-')[0] : 'en';
 
