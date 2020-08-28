@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'regenerator-runtime/runtime.js';
 import getBundleURL from './getBundleUrl';
+// wrapper goes here
+// compile to dist/no-react.js using babel
+
 import A11yWrapper from './components/A11yWrapper';
-import '@babel/polyfill';
 
 const language = navigator.language.split('-')[0];
 
