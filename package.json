@@ -15,6 +15,7 @@
     "@storybook/addon-knobs": "^6.0.16",
     "@storybook/react": "^6.0.17",
     "classnames": "^2.2.6",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.11.0"
