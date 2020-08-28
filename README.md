@@ -54,5 +54,6 @@ abide by their licensing rules if you choose to use Open Dyslexic in your own
 projects.
 
 ## To-do
-[ ] Split React and No-react into different packages
-[ ] Write tests
+- [ ] ~~Split React and No-react into different packages~~
+- [ ] Write tests
+- [ ] Add CSS color parameters
