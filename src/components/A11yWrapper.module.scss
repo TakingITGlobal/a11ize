@@ -115,6 +115,10 @@ $body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
   position: relative;
   background-color: #fff;
   color: black;
+
+  &:hover {
+    background-color: #f2f2f2;
+  }
   
   &.switch {
     width: 5em;
