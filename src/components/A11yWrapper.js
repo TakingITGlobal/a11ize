@@ -1,14 +1,15 @@
+/* eslint-disable global-require */
 // react button goes here
 import React, { useState, useEffect, useRef } from 'react';
 import cx from 'classnames';
 import {
-  FaTextHeight,
-  FaTextWidth,
-  FaUniversalAccess,
-  FaBan,
-} from 'react-icons/fa';
+  faTextHeight,
+  faTextWidth,
+  faUniversalAccess,
+  faBan,
+  faBars,
+} from '@fortawesome/free-solid-svg-icons';
 
-import { MdFormatLineSpacing } from 'react-icons/md';
 import styles from './A11yWrapper.module.scss';
 import ColorizeFilter from '../ColorizeFilter';
 
@@ -17,19 +18,38 @@ const i18n = {
   fr: require('../i18n/fr.yml'),
 };
 
-const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
-  const AccessibilityPanel = ({ id, heading, label, children }) => {
-    return (
-      <div className={styles.option}>
-        <h2>{heading}</h2>
-        <label htmlFor={id} id={`${id}-label`}>
-          {label}
-        </label>
-        <div className={styles.input}>{children}</div>
-      </div>
-    );
-  };
+const Icon = ({ icon, ...props }) => {
+  const [width, height, , , path] = icon.icon;
+  return (
+    <svg
+      stroke="currentColor"
+      fill="currentColor"
+      strokeWidth="0"
+      viewBox={`0 0 ${width} ${height}`}
+      height="1em"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+      className={styles.icon}
+      {...props}
+    >
+      <path d={path} />
+    </svg>
+  );
+};
 
+const AccessibilityPanel = ({ id, heading, label, children }) => {
+  return (
+    <div className={styles.option}>
+      <h2>{heading}</h2>
+      <label htmlFor={id} id={`${id}-label`}>
+        {label}
+      </label>
+      <div className={styles.input}>{children}</div>
+    </div>
+  );
+};
+
+const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
   const [active, setActive] = useState(false);
   const contentRef = useRef();
   // font size
@@ -124,7 +144,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
   ]);
 
   // initial load
-  const text = i18n[lang] ? i18n[lang] : i18n['en'];
+  const text = i18n[lang] ? i18n[lang] : i18n.en;
   useEffect(async () => {
     restoreState();
     // lazily load font
@@ -178,11 +198,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
             heading={text.textSize}
             label={text.textSizeLabel}
           >
-            <FaTextHeight
-              className={styles.icon}
-              style={{ fontSize: '20px' }}
-              role="presentation"
-            />
+            <Icon icon={faTextHeight} fontSize="20px" role="presentation" />
             <button
               aria-label={decrease(text.textSize)}
               className={styles.button}
@@ -209,11 +225,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
             >
               +
             </button>
-            <FaTextHeight
-              className={styles.icon}
-              style={{ fontSize: '25px' }}
-              role="presentation"
-            />
+            <Icon icon={faTextHeight} fontSize="25px" role="presentation" />
           </AccessibilityPanel>
           <AccessibilityPanel
             id={`${id}-fontfamily`}
@@ -239,11 +251,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
             heading={text.lineHeight}
             label={text.lineHeightLabel}
           >
-            <MdFormatLineSpacing
-              className={styles.icon}
-              style={{ fontSize: '20px' }}
-              role="presentation"
-            />
+            <Icon icon={faBars} fontSize="20px" role="presentation" />
             <button
               aria-label={decrease(text.lineHeight)}
               className={styles.button}
@@ -270,22 +278,14 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
             >
               +
             </button>
-            <MdFormatLineSpacing
-              className={styles.icon}
-              style={{ fontSize: '25px' }}
-              role="presentation"
-            />
+            <Icon icon={faBars} fontSize="25px" role="presentation" />
           </AccessibilityPanel>
           <AccessibilityPanel
             id={`${id}-letterspacing`}
             heading={text.letterSpacing}
             label={text.letterSpacingLabel}
           >
-            <FaTextWidth
-              className={styles.icon}
-              style={{ fontSize: '20px' }}
-              role="presentation"
-            />
+            <Icon icon={faTextWidth} fontSize="20px" role="presentation" />
             <button
               aria-label={decrease(text.lineHeight)}
               className={styles.button}
@@ -312,8 +312,8 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
             >
               +
             </button>
-            <FaTextWidth
-              className={styles.icon}
+            <Icon
+              icon={faTextWidth}
               style={{ fontSize: '25px' }}
               role="presentation"
             />
@@ -372,7 +372,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
                   type="button"
                   onClick={() => setTheme(className)}
                 >
-                  {className === 'Default' ? <FaBan /> : 'Aa'}
+                  {className === 'Default' ? <Icon icon={faBan} /> : 'Aa'}
                 </button>
               ))}
 
@@ -458,7 +458,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
           }}
           aria-label={active ? text.close : text.open}
         >
-          <FaUniversalAccess fontSize="40px" role="presentation" />
+          <Icon icon={faUniversalAccess} fontSize="40px" role="presentation" />
         </button>
         <br />
         <button
