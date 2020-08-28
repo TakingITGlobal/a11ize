@@ -35,11 +35,16 @@ tag.
 
 Add the id of `accessible-content` to an element so that it wraps the content you want a11ize to affect (generally the entire page).
 
+```js
+import AccessibilityButton from 'a11ize/dist/no-react';
+AccessibilityButton.createButton('#accessible-content', options);
+```
+
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@takingitglobal/a11ize@1.0.0-alpha.2/dist/no-react/index.js">
 <div id="accessible-content">
   Site content here.
 </div>
+<script src="https://cdn.jsdelivr.net/npm/@takingitglobal/a11ize@1.0.0-alpha.2/dist/no-react/index.js">
 ```
 
 ## Font Usage
