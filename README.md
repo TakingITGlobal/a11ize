@@ -52,3 +52,7 @@ AccessibilityButton.createButton('#accessible-content', options);
 a11ize bundles the Open Dyslexic font face by default. Please make sure to
 abide by their licensing rules if you choose to use Open Dyslexic in your own
 projects.
+
+## To-do
+[ ] Split React and No-react into different packages
+[ ] Write tests
