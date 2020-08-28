@@ -5,8 +5,7 @@ $primary-color: #921d5b;
 $primary-color-hover: #731749;
 $secondary-color: #01364c;
 $a11y-button-color: #fff;
-$body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
-  sans-serif;
+$body-font-family: unset;
 
 /*
   UI STYLING
@@ -117,7 +116,7 @@ $body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
   color: black;
 
   &:hover {
-    background-color: #f2f2f2;
+    background-color: #ffffff;
   }
   
   &.switch {
