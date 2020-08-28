@@ -84,7 +84,7 @@ $body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
   }
 
   &,
-  & *:not(h2) {
+  & *:not(h2):not(.icon) {
     font-size: 16px !important;
   }
 
