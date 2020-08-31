@@ -1,6 +1,10 @@
 # a11ize
 
+![Demo of a11ize](rydemo.png)
+
 A React-based accessibility toolkit for creating accessible websites.
+
+Check out a live demo at [https://risingyouth.ca](https://risingyouth.ca).
 
 ## Features
 
@@ -13,6 +17,7 @@ A React-based accessibility toolkit for creating accessible websites.
 - Enhanced Inputs
 - Table of Contents
   - Dynamically generated from semantic HTML
+- i18n Support (PRs welcomed!)
 
 ## Usage notes
 
