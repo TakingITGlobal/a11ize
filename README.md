@@ -2,7 +2,8 @@
 
 ![Demo of a11ize](rydemo.png)
 
-A React-based accessibility toolkit for creating accessible websites.
+A React-based accessibility toolkit to make any website accessible.
+a11ize is fast, extensible, and most importantly, lightweight (21.55 kb gzipped without core-js).
 
 Check out a live demo at [https://risingyouth.ca](https://risingyouth.ca).
 
@@ -40,16 +41,20 @@ tag.
 
 Add the id of `accessible-content` to an element so that it wraps the content you want a11ize to affect (generally the entire page).
 
-```js
-import AccessibilityButton from 'a11ize/dist/no-react';
-AccessibilityButton.createButton('#accessible-content', options);
+```html
+<div id="accessible-content">
+  Site content here.
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@takingitglobal/a11ize@1.0.0-alpha.10/dist/with-react/index.js">
 ```
+
+For IE compability, use the version with core-js bundled in.
 
 ```html
 <div id="accessible-content">
   Site content here.
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@takingitglobal/a11ize@1.0.0-alpha.10/dist/no-react/index.js">
+<script src="https://cdn.jsdelivr.net/npm/@takingitglobal/a11ize@1.0.0-alpha.10/dist/with-react-cjs/index.js">
 ```
 
 ## Font Usage
@@ -59,6 +64,6 @@ abide by their licensing rules if you choose to use Open Dyslexic in your own
 projects.
 
 ## To-do
-- [ ] ~~Split React and No-react into different packages~~
-- [ ] Write tests
+
+- [ ] Write tests (Help needed!)
 - [ ] Add CSS color parameters
