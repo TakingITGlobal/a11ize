@@ -1,5 +1,3 @@
-/* globals document:readonly */
-
 function getBaseURL(url) {
   return `${`${url}`.replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1')}/`;
 }

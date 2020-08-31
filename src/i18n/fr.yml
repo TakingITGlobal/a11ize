@@ -31,8 +31,8 @@ toc: La Table des Matières
 tocLabel: Affiche une table des matières
 
 themeDefault: Thème défault
-themeBw: "Monochrome : Noir sur blanche"
-themeWb: "Monochrome inversée : Blanche sur noir"
-themeBy: "Haute contraste : Noir sur jaune"
-themeYb: "Haute contraste inversée : Jaune sur noir"
+themeBw: 'Monochrome : Noir sur blanche'
+themeWb: 'Monochrome inversée : Blanche sur noir'
+themeBy: 'Haute contraste : Noir sur jaune'
+themeYb: 'Haute contraste inversée : Jaune sur noir'
 themeBrown: Blanche sur brun

@@ -101,7 +101,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
     if (typeof window === 'object') {
       const stateString = window.localStorage.getItem('a11y-state');
       const state = stateString ? JSON.parse(stateString) : {};
-      console.log(state);
+      // console.log(state);
       setActive(false);
       setFontScaleRaw(state.fontScale || 1);
       setFontFamily(state.fontFamily || 'Default');

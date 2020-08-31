@@ -13,10 +13,12 @@ const children = wrapper.innerHTML;
 
 // eslint-disable-next-line camelcase, no-undef
 __webpack_public_path__ = getBundleURL();
+// eslint-disable-next-line no-console
 console.log(`Served from ${getBundleURL()}`);
 
 if (wrapper) {
-  console.log('Wrapper found! Loading button...');
+  // eslint-disable-next-line no-console
+  console.log('Wrapper element found! Loading button...');
   ReactDOM.render(
     <A11yWrapper
       dangerouslySet={children}
@@ -24,5 +26,10 @@ if (wrapper) {
       id="a11y-module"
     />,
     wrapper
+  );
+} else {
+  // eslint-disable-next-line no-console
+  console.log(
+    'No wrapper element found! Make sure you have a wrapper element with id `accessible-content` around the content you want A11ize to process!'
   );
 }
