@@ -20,31 +20,31 @@ const i18n = {
   fr: require('../i18n/fr.yml'),
 };
 
+const AccessibilityPanel = ({
+  id: panelId,
+  heading,
+  label,
+  children: panelChildren,
+}) => {
+  return (
+    <div className={styles.option}>
+      <h2>{heading}</h2>
+      <label htmlFor={panelId} id={`${panelId}-label`}>
+        {label}
+      </label>
+      <div className={styles.input}>{panelChildren}</div>
+    </div>
+  );
+};
+
+AccessibilityPanel.propTypes = {
+  id: PropTypes.string.isRequired,
+  heading: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
+};
+
 const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
-  const AccessibilityPanel = ({
-    id: panelId,
-    heading,
-    label,
-    children: panelChildren,
-  }) => {
-    return (
-      <div className={styles.option}>
-        <h2>{heading}</h2>
-        <label htmlFor={panelId} id={`${panelId}-label`}>
-          {label}
-        </label>
-        <div className={styles.input}>{panelChildren}</div>
-      </div>
-    );
-  };
-
-  AccessibilityPanel.propTypes = {
-    id: PropTypes.string.isRequired,
-    heading: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    children: PropTypes.element.isRequired,
-  };
-
   const [active, setActive] = useState(false);
   const contentRef = useRef();
   // font size
