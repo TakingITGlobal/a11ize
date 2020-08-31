@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
-const { A11yWrapper } = require('./src');
+const bare = require('./dist/bare');
 
-module.exports = A11yWrapper;
+module.exports = bare;
