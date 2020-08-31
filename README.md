@@ -49,7 +49,7 @@ AccessibilityButton.createButton('#accessible-content', options);
 <div id="accessible-content">
   Site content here.
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@takingitglobal/a11ize@1.0.0-alpha.10/dist/no-react/index.js">
+<script src="https://cdn.jsdelivr.net/npm/@takingitglobal/a11ize@1.0.0-alpha.11/dist/no-react/index.js">
 ```
 
 ## Font Usage
