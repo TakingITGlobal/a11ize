@@ -105,7 +105,7 @@ module.exports = [
     output: {
       filename: 'index.js',
       library: 'a11ize',
-      libraryTarget: 'var',
+      libraryTarget: 'commonjs2',
       path: path.join(__dirname, '/dist/no-react'),
       // publicPath: 'http://acoolplaceholderurl.net/',
     },

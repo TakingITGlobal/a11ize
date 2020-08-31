@@ -1,5 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 const { A11yWrapper } = require('./src');
 
-const wrapper = require('./react/index');
-
-exports.A11yWrapper = wrapper;
+module.exports = A11yWrapper;
