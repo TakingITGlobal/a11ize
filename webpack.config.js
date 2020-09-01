@@ -16,8 +16,8 @@ module.exports = [
     output: {
       filename: 'index.js',
       library: 'a11ize',
-      libraryTarget: 'umd',
-      path: path.join(__dirname, '/dist/react'),
+      libraryTarget: 'commonjs2',
+      path: path.join(__dirname, '/dist/bare'),
     },
     plugins: [
       new CleanWebpackPlugin(),
@@ -99,19 +99,16 @@ module.exports = [
     },
   },
   {
-    // entry: { 'no-react': './src/no-react.js', index: './src/index.js' },
-    entry: './src/no-react.js',
+    entry: './src/with-react.js',
     // externals: [nodeExternals()],
     output: {
       filename: 'index.js',
       library: 'a11ize',
       libraryTarget: 'var',
-      path: path.join(__dirname, '/dist/no-react'),
-      // publicPath: 'http://acoolplaceholderurl.net/',
+      path: path.join(__dirname, '/dist/with-react'),
     },
     resolve: {
       mainFields: ['module', 'main'],
-      // extensions: ['.ts', '.tsx', '.js'],
       alias: {
         react: 'preact/compat',
         'react-dom/test-utils': 'preact/test-utils',
@@ -134,7 +131,9 @@ module.exports = [
       //   externalGlobal: 'window.publicPath', // Your global variable name.
       //   chunkName: 'app', // Chunk name from "entry".
       // }),
-      analyzeBundle ? new BundleAnalyzerPlugin() : () => {},
+      analyzeBundle
+        ? new BundleAnalyzerPlugin({ analyzerPort: 1111 })
+        : () => {},
     ],
     module: {
       rules: [
@@ -183,6 +182,114 @@ module.exports = [
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env', '@babel/preset-react'],
+            },
+          },
+        },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/,
+          loader: 'file-loader',
+        },
+        {
+          test: /\.ya?ml$/,
+          type: 'json', // Required by Webpack v4
+          use: 'yaml-loader',
+        },
+      ],
+    },
+  },
+  {
+    entry: './src/with-react.js',
+    // externals: [nodeExternals()],
+    output: {
+      filename: 'index.js',
+      library: 'a11ize',
+      libraryTarget: 'var',
+      path: path.join(__dirname, '/dist/with-react-cjs'),
+    },
+    resolve: {
+      mainFields: ['module', 'main'],
+      alias: {
+        react: 'preact/compat',
+        'react-dom/test-utils': 'preact/test-utils',
+        'react-dom': 'preact/compat',
+      },
+    },
+    stats: {
+      // Examine all modules
+      maxModules: Infinity,
+      // Display bailout reasons
+      optimizationBailout: true,
+    },
+    plugins: [
+      new CleanWebpackPlugin(),
+      // new MiniCssExtractPlugin({
+      //   filename: isDevelopment ? '[name].css' : '[name].[hash].css',
+      //   chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
+      // }),
+      // new DynamicPublicPathPlugin({
+      //   externalGlobal: 'window.publicPath', // Your global variable name.
+      //   chunkName: 'app', // Chunk name from "entry".
+      // }),
+      analyzeBundle
+        ? new BundleAnalyzerPlugin({ analyzerPort: 2222 })
+        : () => {},
+    ],
+    module: {
+      rules: [
+        {
+          test: /\.module\.s(a|c)ss$/,
+          loader: [
+            // isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                modules: {
+                  exportLocalsConvention: 'dashes',
+                },
+                sourceMap: isDevelopment,
+              },
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: isDevelopment,
+                implementation: nodeSass,
+              },
+            },
+          ],
+        },
+        {
+          test: /\.s(a|c)ss$/,
+          exclude: /\.module\.(s(a|c)ss)$/,
+          loader: [
+            // isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+            'style-loader',
+            'css-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: isDevelopment,
+              },
+            },
+          ],
+        },
+        {
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    useBuiltIns: 'usage',
+                    corejs: 3,
+                  },
+                ],
+                '@babel/preset-react',
+              ],
             },
           },
         },

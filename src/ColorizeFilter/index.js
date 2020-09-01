@@ -1,25 +1,26 @@
-import React from "react"
+import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * SVG two-tone colour filter
  */
-const ColorizeFilter = ({ id, dark, light = "#ffffff", wcagClamp = false }) => {
+const ColorizeFilter = ({ id, dark, light = '#ffffff', wcagClamp = false }) => {
   // Convert color to linear RGB array from 0 to 1 in steps:
-  const toArray = hexString =>
+  const toArray = (hexString) =>
     // From hexadecimal string...
     hexString
       // ...to array of hex bytes
       .substring(1)
       .match(/.{2}/g)
       // ...to decimal
-      .map(hex => Number.parseInt(hex, 16))
-      .map(dec => dec / 255)
+      .map((hex) => Number.parseInt(hex, 16))
+      .map((dec) => dec / 255)
       // ...from sRGB to linear
-      .map(rgb => ((rgb + 0.055) / 1.055) ** 2.4)
+      .map((rgb) => ((rgb + 0.055) / 1.055) ** 2.4);
   // background/lows color
-  let bg = toArray(dark)
+  let bg = toArray(dark);
   // foreground/highlight color
-  const fg = toArray(light)
+  const fg = toArray(light);
 
   // In feColorMatrix, each row is one new channel (RGBA).
   // For the five matrix columns `C1..C5` and the unfiltered pixel `rgba`
@@ -32,23 +33,23 @@ const ColorizeFilter = ({ id, dark, light = "#ffffff", wcagClamp = false }) => {
   // Ensure WCAG compliance by clamping low values to 4.5 contrast ratio
   if (wcagClamp) {
     // relative luminance formula
-    const lum = c => 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]
-    const lBg = lum(bg)
-    const lFg = lum(fg)
+    const lum = (c) => 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+    const lBg = lum(bg);
+    const lFg = lum(fg);
     // Noting that contrast ratio is (l1 + 0.05):(l2 + 0.05) and not just l1:l2,
     // we must consider the two cases of which is lighter:
-    const l1 = Math.max(lBg, lFg) // lighter
+    const l1 = Math.max(lBg, lFg); // lighter
     // case 1: foreground > background
     if (l1 === lFg) {
-      const target = 4.5 * (lBg + 0.05) - 0.05
-      const adjust = target / lFg
-      bg = fg.map(c => c * adjust)
+      const target = 4.5 * (lBg + 0.05) - 0.05;
+      const adjust = target / lFg;
+      bg = fg.map((c) => c * adjust);
     }
     // case 2: background > foreground
     if (l1 === lBg) {
-      const target = (lBg + 0.05) / 4.5 - 0.05
-      const adjust = lBg / target
-      bg = bg.map(c => c / adjust)
+      const target = (lBg + 0.05) / 4.5 - 0.05;
+      const adjust = lBg / target;
+      bg = bg.map((c) => c / adjust);
     }
   }
 
@@ -75,7 +76,19 @@ const ColorizeFilter = ({ id, dark, light = "#ffffff", wcagClamp = false }) => {
                  0                0 0 1 0`}
       />
     </filter>
-  )
-}
+  );
+};
 
-export default ColorizeFilter
+ColorizeFilter.propTypes = {
+  id: PropTypes.string.isRequired,
+  dark: PropTypes.string.isRequired,
+  light: PropTypes.string,
+  wcagClamp: PropTypes.bool,
+};
+
+ColorizeFilter.defaultProps = {
+  light: '#ffffff',
+  wcagClamp: false,
+};
+
+export default ColorizeFilter;

@@ -1,5 +1,6 @@
 // react button goes here
 import React, { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 import {
   FaTextHeight,
@@ -13,23 +14,37 @@ import styles from './A11yWrapper.module.scss';
 import ColorizeFilter from '../ColorizeFilter';
 
 const i18n = {
+  // eslint-disable-next-line global-require
   en: require('../i18n/en.yml'),
+  // eslint-disable-next-line global-require
   fr: require('../i18n/fr.yml'),
 };
 
-const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
-  const AccessibilityPanel = ({ id, heading, label, children }) => {
-    return (
-      <div className={styles.option}>
-        <h2>{heading}</h2>
-        <label htmlFor={id} id={`${id}-label`}>
-          {label}
-        </label>
-        <div className={styles.input}>{children}</div>
-      </div>
-    );
-  };
+const AccessibilityPanel = ({
+  id: panelId,
+  heading,
+  label,
+  children: panelChildren,
+}) => {
+  return (
+    <div className={styles.option}>
+      <h2>{heading}</h2>
+      <label htmlFor={panelId} id={`${panelId}-label`}>
+        {label}
+      </label>
+      <div className={styles.input}>{panelChildren}</div>
+    </div>
+  );
+};
 
+AccessibilityPanel.propTypes = {
+  id: PropTypes.string.isRequired,
+  heading: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
+};
+
+const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
   const [active, setActive] = useState(false);
   const contentRef = useRef();
   // font size
@@ -86,7 +101,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
     if (typeof window === 'object') {
       const stateString = window.localStorage.getItem('a11y-state');
       const state = stateString ? JSON.parse(stateString) : {};
-      console.log(state);
+      // console.log(state);
       setActive(false);
       setFontScaleRaw(state.fontScale || 1);
       setFontFamily(state.fontFamily || 'Default');
@@ -124,7 +139,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
   ]);
 
   // initial load
-  const text = i18n[lang] ? i18n[lang] : i18n['en'];
+  const text = i18n[lang] ? i18n[lang] : i18n.en;
   useEffect(async () => {
     restoreState();
     // lazily load font
@@ -507,6 +522,21 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
       </div>
     </div>
   );
+};
+
+// { id, children, dangerouslySet, lang = 'en' }
+AccessibilityButton.propTypes = {
+  id: PropTypes.string,
+  children: PropTypes.element,
+  dangerouslySet: PropTypes.string,
+  lang: PropTypes.string,
+};
+
+AccessibilityButton.defaultProps = {
+  id: 'a11ize',
+  children: undefined,
+  dangerouslySet: undefined,
+  lang: 'en',
 };
 
 export default AccessibilityButton;

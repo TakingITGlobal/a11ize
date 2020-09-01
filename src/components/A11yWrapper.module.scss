@@ -5,8 +5,7 @@ $primary-color: #921d5b;
 $primary-color-hover: #731749;
 $secondary-color: #01364c;
 $a11y-button-color: #fff;
-$body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
-  sans-serif;
+$body-font-family: unset;
 
 /*
   UI STYLING
@@ -36,7 +35,7 @@ $body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
   color: $a11y-button-color;
   border: 1px solid rgba(0,0,0,0);
 
-  &:hover {
+  &:hover, &:active, &:focus {
     background-color: $primary-color-hover;
     margin: 0;
     z-index: 100;
@@ -60,7 +59,7 @@ $body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
     transform: translateY(0);
   }
 
-  &:hover {
+  &:hover, &:active, &:focus {
     padding: 0.5em;
     background-color: $secondary-color;
     color: $a11y-button-color;
@@ -115,6 +114,10 @@ $body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial,
   position: relative;
   background-color: #fff;
   color: black;
+
+  &:hover {
+    background-color: #ffffff;
+  }
   
   &.switch {
     width: 5em;

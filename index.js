@@ -1,5 +1,4 @@
-const { A11yWrapper } = require('./src');
+// eslint-disable-next-line import/no-unresolved
+const bare = require('./dist/bare');
 
-const wrapper = require('./react/index');
-
-exports.A11yWrapper = wrapper;
+module.exports = bare;

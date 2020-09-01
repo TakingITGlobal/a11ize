@@ -1,0 +1,4 @@
+.github
+.storybook
+src/**/*.test.*
+src/**/*.stories.*

@@ -1,14 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'regenerator-runtime/runtime.js';
 import getBundleURL from './getBundleUrl';
-// wrapper goes here
-// compile to dist/no-react.js using babel
-// ok what tf do we put here
-
 import A11yWrapper from './components/A11yWrapper';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import 'regenerator-runtime/runtime';
 
-const language = navigator.language.split('-')[0];
+const language = navigator.language ? navigator.language.split('-')[0] : 'en';
 
 const wrapper = document.getElementById('accessible-content');
 const children = wrapper.innerHTML;
@@ -18,10 +15,12 @@ const children = wrapper.innerHTML;
 
 // eslint-disable-next-line camelcase, no-undef
 __webpack_public_path__ = getBundleURL();
+// eslint-disable-next-line no-console
 console.log(`Served from ${getBundleURL()}`);
 
 if (wrapper) {
-  console.log('Wrapper found! Loading button...');
+  // eslint-disable-next-line no-console
+  console.log('Wrapper element found! Loading button...');
   ReactDOM.render(
     <A11yWrapper
       dangerouslySet={children}
@@ -29,5 +28,10 @@ if (wrapper) {
       id="a11y-module"
     />,
     wrapper
+  );
+} else {
+  // eslint-disable-next-line no-console
+  console.log(
+    'No wrapper element found! Make sure you have a wrapper element with id `accessible-content` around the content you want A11ize to process!'
   );
 }

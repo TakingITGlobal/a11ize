@@ -2,11 +2,11 @@ default: Default
 up: Increase
 down: Decrease
 toggle: Toggle
-on: "On"
-off: "Off"
+on: 'On'
+off: 'Off'
 currently: currently
-toggleOn: "on"
-toggleOff: "off"
+toggleOn: 'on'
+toggleOff: 'off'
 
 open: Open the accessibility menu
 close: Close the accessibility menu
@@ -31,8 +31,8 @@ toc: Table of Contents
 tocLabel: Generate a table of contents
 
 themeDefault: Default theme
-themeBw: "Monochrome: Black on white"
-themeWb: "Inverted monochrome: White on black"
-themeBy: "High contrast: Black on yellow"
-themeYb: "Inverted high contrast: Yellow on black"
+themeBw: 'Monochrome: Black on white'
+themeWb: 'Inverted monochrome: White on black'
+themeBy: 'High contrast: Black on yellow'
+themeYb: 'Inverted high contrast: Yellow on black'
 themeBrown: White on brown
