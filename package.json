@@ -7,7 +7,12 @@
   "author": "TakingITGlobal",
   "license": "MIT",
   "keywords": [
-    "accessibility, react, menu, reacjs, react-component, website"
+    "accessibility",
+    "react",
+    "menu",
+    "reacjs",
+    "react-component",
+    "website"
   ],
   "publishConfig": {
     "access": "public"
