@@ -10,11 +10,10 @@ const language = navigator.language ? navigator.language.split('-')[0] : 'en';
 const wrapper = document.getElementById('accessible-content');
 const children = wrapper.innerHTML;
 
-// const path = document.currentScript.src;
-// const mydir = `${path.split('/').slice(0, -1).join('/')}/`;
-
+// Set Webpack's public path dynamically
 // eslint-disable-next-line camelcase, no-undef
 __webpack_public_path__ = getBundleURL();
+
 // eslint-disable-next-line no-console
 console.log(`Served from ${getBundleURL()}`);
 

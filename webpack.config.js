@@ -9,8 +9,8 @@ const isDevelopment = process.env.NODE_ENV === 'development';
 const analyzeBundle = process.env.ANALYZE_BUNDLE;
 
 module.exports = [
+  // Bare library (no bundled dependencies)
   {
-    // entry: { 'no-react': './src/no-react.js', index: './src/index.js' },
     entry: './src/index.js',
     externals: [nodeExternals()],
     output: {
@@ -19,19 +19,12 @@ module.exports = [
       libraryTarget: 'commonjs2',
       path: path.join(__dirname, '/dist/bare'),
     },
-    plugins: [
-      new CleanWebpackPlugin(),
-      // new MiniCssExtractPlugin({
-      //   filename: isDevelopment ? '[name].css' : '[name].[hash].css',
-      //   chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
-      // }),
-    ],
+    plugins: [new CleanWebpackPlugin()],
     module: {
       rules: [
         {
           test: /\.module\.s(a|c)ss$/,
           loader: [
-            // isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
             'style-loader',
             {
               loader: 'css-loader',
@@ -55,7 +48,6 @@ module.exports = [
           test: /\.s(a|c)ss$/,
           exclude: /\.module\.(s(a|c)ss)$/,
           loader: [
-            // isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
             'style-loader',
             'css-loader',
             {
@@ -98,9 +90,9 @@ module.exports = [
       ],
     },
   },
+  // Library with bundled React (exported as a variable)
   {
     entry: './src/with-react.js',
-    // externals: [nodeExternals()],
     output: {
       filename: 'index.js',
       library: 'a11ize',
@@ -123,14 +115,6 @@ module.exports = [
     },
     plugins: [
       new CleanWebpackPlugin(),
-      // new MiniCssExtractPlugin({
-      //   filename: isDevelopment ? '[name].css' : '[name].[hash].css',
-      //   chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
-      // }),
-      // new DynamicPublicPathPlugin({
-      //   externalGlobal: 'window.publicPath', // Your global variable name.
-      //   chunkName: 'app', // Chunk name from "entry".
-      // }),
       analyzeBundle
         ? new BundleAnalyzerPlugin({ analyzerPort: 1111 })
         : () => {},
@@ -140,7 +124,6 @@ module.exports = [
         {
           test: /\.module\.s(a|c)ss$/,
           loader: [
-            // isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
             'style-loader',
             {
               loader: 'css-loader',
@@ -164,7 +147,6 @@ module.exports = [
           test: /\.s(a|c)ss$/,
           exclude: /\.module\.(s(a|c)ss)$/,
           loader: [
-            // isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
             'style-loader',
             'css-loader',
             {
@@ -197,9 +179,9 @@ module.exports = [
       ],
     },
   },
+  // Library with bundled React and CommonJS (exported as a variable)
   {
     entry: './src/with-react.js',
-    // externals: [nodeExternals()],
     output: {
       filename: 'index.js',
       library: 'a11ize',
@@ -222,14 +204,6 @@ module.exports = [
     },
     plugins: [
       new CleanWebpackPlugin(),
-      // new MiniCssExtractPlugin({
-      //   filename: isDevelopment ? '[name].css' : '[name].[hash].css',
-      //   chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
-      // }),
-      // new DynamicPublicPathPlugin({
-      //   externalGlobal: 'window.publicPath', // Your global variable name.
-      //   chunkName: 'app', // Chunk name from "entry".
-      // }),
       analyzeBundle
         ? new BundleAnalyzerPlugin({ analyzerPort: 2222 })
         : () => {},
@@ -239,7 +213,6 @@ module.exports = [
         {
           test: /\.module\.s(a|c)ss$/,
           loader: [
-            // isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
             'style-loader',
             {
               loader: 'css-loader',
@@ -263,7 +236,6 @@ module.exports = [
           test: /\.s(a|c)ss$/,
           exclude: /\.module\.(s(a|c)ss)$/,
           loader: [
-            // isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
             'style-loader',
             'css-loader',
             {
