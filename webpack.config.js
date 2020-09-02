@@ -16,7 +16,7 @@ module.exports = [
     output: {
       filename: 'index.js',
       library: 'a11ize',
-      libraryTarget: 'commonjs2',
+      libraryTarget: 'umd',
       path: path.join(__dirname, '/dist/bare'),
     },
     plugins: [new CleanWebpackPlugin()],
@@ -96,7 +96,7 @@ module.exports = [
     output: {
       filename: 'index.js',
       library: 'a11ize',
-      libraryTarget: 'var',
+      libraryTarget: 'umd',
       path: path.join(__dirname, '/dist/with-react'),
     },
     resolve: {
@@ -185,7 +185,7 @@ module.exports = [
     output: {
       filename: 'index.js',
       library: 'a11ize',
-      libraryTarget: 'var',
+      libraryTarget: 'umd',
       path: path.join(__dirname, '/dist/with-react-cjs'),
     },
     resolve: {
