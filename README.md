@@ -48,7 +48,7 @@ Add the id of `accessible-content` to an element so that it wraps the content yo
 <script src="https://cdn.jsdelivr.net/npm/@takingitglobal/a11ize@1/dist/with-react/index.js">
 ```
 
-For IE compability, use the version with CoreJS bundled in.
+For wider browser compability, use the version with CoreJS bundled in.
 
 ```html
 <div id="accessible-content">
