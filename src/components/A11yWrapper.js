@@ -113,6 +113,15 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
       setTableOfContents(state.tableOfContents || false);
     }
   };
+
+  // initial load
+  const text = i18n[lang] ? i18n[lang] : i18n.en;
+  useEffect(async () => {
+    restoreState();
+    // lazily load font
+    await import('../opendyslexic.scss');
+  }, []);
+
   useEffect(() => {
     if (typeof window === 'object') {
       const state = {
@@ -138,13 +147,6 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
     tableOfContents,
   ]);
 
-  // initial load
-  const text = i18n[lang] ? i18n[lang] : i18n.en;
-  useEffect(async () => {
-    restoreState();
-    // lazily load font
-    await import('../opendyslexic.scss');
-  }, []);
   // i18n helpers
   const toggleText = (what, on) =>
     `${text.toggle} ${what.toLowerCase()} (${text.currently} ${
