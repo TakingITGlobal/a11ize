@@ -89,6 +89,8 @@ For wider browser compability, use the version with CoreJS bundled in.
 <script src="https://cdn.jsdelivr.net/npm/@takingitglobal/a11ize@1/dist/with-react-cjs/index.js"></script>
 ```
 
+Cache times on jsdelivr are relatively long, so if you want the latest release replace the `@1` with the version you'd like to use.
+
 ## Contributing
 
 ### Translations & i18n
