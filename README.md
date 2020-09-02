@@ -63,6 +63,13 @@ a11ize bundles the Open Dyslexic font face by default. Please make sure to
 abide by their licensing rules if you choose to use Open Dyslexic in your own
 projects.
 
+## Contributing
+
+### Translations & i18n
+
+If you're able to translate the text in a11ize to another language, please make a PR with the new YAML file of translations.
+Example YAML files are in `src/i18n/en.yml`. The translated text should match to the appropriate key, with the language code as the filename.
+
 ## To-do
 
 - [ ] Write tests (Help needed!)
