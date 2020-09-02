@@ -7,6 +7,8 @@ a11ize is fast, extensible, and most importantly, lightweight (21.55 kb gzipped 
 
 Check out a live demo at [https://risingyouth.ca](https://risingyouth.ca).
 
+a11ize is based on the Fluid [preferences framework](https://fluidproject.org/projects.html).
+
 ## Features
 
 - Text Sizing
@@ -87,12 +89,6 @@ For wider browser compability, use the version with CoreJS bundled in.
 <script src="https://cdn.jsdelivr.net/npm/@takingitglobal/a11ize@1/dist/with-react-cjs/index.js"></script>
 ```
 
-## Font Usage
-
-a11ize bundles the Open Dyslexic font face by default. Please make sure to
-abide by their licensing rules if you choose to use Open Dyslexic in your own
-projects.
-
 ## Contributing
 
 ### Translations & i18n
@@ -100,7 +96,13 @@ projects.
 If you're able to translate the text in a11ize to another language, please make a PR with the new YAML file of translations.
 Example YAML files are in `src/i18n/en.yml`. The translated text should match to the appropriate key, with the language code as the filename.
 
-## To-do
+## Credits
 
-- [ ] Write tests (Help needed!)
-- [x] Add CSS color parameters
+a11ize is largely inspired by [OCAD University's Infusion framework](https://github.com/fluid-project/infusion), which is a part of the Fluid Project. 
+We aimed to create a lighter, and more widely usable a11y toolkit that could work for any website with minimal modifications.
+
+### Font Usage
+
+a11ize bundles the Open Dyslexic font face by default. Please make sure to
+abide by their licensing rules if you choose to use Open Dyslexic in your own
+projects.
