@@ -45,16 +45,16 @@ Add the id of `accessible-content` to an element so that it wraps the content yo
 <div id="accessible-content">
   Site content here.
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@takingitglobal/a11ize@1.1.0/dist/with-react/index.js">
+<script src="https://cdn.jsdelivr.net/npm/@takingitglobal/a11ize@1/dist/with-react/index.js">
 ```
 
-For IE compability, use the version with core-js bundled in.
+For IE compability, use the version with CoreJS bundled in.
 
 ```html
 <div id="accessible-content">
   Site content here.
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@takingitglobal/a11ize@1.1.0/dist/with-react-cjs/index.js">
+<script src="https://cdn.jsdelivr.net/npm/@takingitglobal/a11ize@1/dist/with-react-cjs/index.js">
 ```
 
 ## Font Usage
