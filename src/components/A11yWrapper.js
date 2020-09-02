@@ -21,19 +21,23 @@ const i18n = {
 };
 
 const AccessibilityPanel = ({
-  id: panelId,
+  id,
+  activePanels,
   heading,
   label,
   children: panelChildren,
 }) => {
+  const panelId = id.split('-')[id.split('-').length - 1];
   return (
-    <div className={styles.option}>
-      <h2>{heading}</h2>
-      <label htmlFor={panelId} id={`${panelId}-label`}>
-        {label}
-      </label>
-      <div className={styles.input}>{panelChildren}</div>
-    </div>
+    activePanels.includes(panelId) && (
+      <div className={styles.option} id={id}>
+        <h2>{heading}</h2>
+        <label htmlFor={panelId} id={`${id}-label`}>
+          {label}
+        </label>
+        <div className={styles.input}>{panelChildren}</div>
+      </div>
+    )
   );
 };
 
@@ -42,9 +46,19 @@ AccessibilityPanel.propTypes = {
   heading: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   children: PropTypes.element.isRequired,
+  activePanels: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
+const AccessibilityButton = ({
+  id,
+  children,
+  dangerouslySet,
+  lang = 'en',
+  primaryColor = '#921d5b',
+  secondaryColor = '#01364c',
+  buttonColor = '#fff',
+  activePanels,
+}) => {
   const [active, setActive] = useState(false);
   const contentRef = useRef();
   // font size
@@ -187,11 +201,19 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
 
   return (
     // menu
-    <div className={cx(active && styles.active)}>
+    <div
+      className={cx(active && styles.active)}
+      style={{
+        '--primary-color': primaryColor,
+        '--secondary-color': secondaryColor,
+        '--a11y-button-color': buttonColor,
+      }}
+    >
       <form className={styles.a11yMenu}>
         <div className={styles.menuWrapper}>
           <AccessibilityPanel
             id={`${id}-textsize`}
+            activePanels={activePanels}
             heading={text.textSize}
             label={text.textSizeLabel}
           >
@@ -234,6 +256,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
           </AccessibilityPanel>
           <AccessibilityPanel
             id={`${id}-fontfamily`}
+            activePanels={activePanels}
             heading={text.fontFamily}
             label={text.fontFamilyLabel}
           >
@@ -253,6 +276,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
           </AccessibilityPanel>
           <AccessibilityPanel
             id={`${id}-linespacing`}
+            activePanels={activePanels}
             heading={text.lineHeight}
             label={text.lineHeightLabel}
           >
@@ -295,6 +319,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
           </AccessibilityPanel>
           <AccessibilityPanel
             id={`${id}-letterspacing`}
+            activePanels={activePanels}
             heading={text.letterSpacing}
             label={text.letterSpacingLabel}
           >
@@ -337,6 +362,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
           </AccessibilityPanel>
           <AccessibilityPanel
             id={`${id}-wordspacing`}
+            activePanels={activePanels}
             heading={text.wordSpacing}
             label={text.wordSpacingLabel}
           >
@@ -369,6 +395,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
           </AccessibilityPanel>
           <AccessibilityPanel
             id={`${id}-contrast`}
+            activePanels={activePanels}
             heading={text.theme}
             label={text.themeLabel}
           >
@@ -421,6 +448,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
           </AccessibilityPanel>
           <AccessibilityPanel
             id={`${id}-clickables`}
+            activePanels={activePanels}
             heading={text.highlightClickables}
             label={text.highlightClickablesLabel}
           >
@@ -444,6 +472,7 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
           </AccessibilityPanel>
           <AccessibilityPanel
             id={`${id}-toc`}
+            activePanels={activePanels}
             heading={text.toc}
             label={text.tocLabel}
           >
@@ -526,12 +555,15 @@ const AccessibilityButton = ({ id, children, dangerouslySet, lang = 'en' }) => {
   );
 };
 
-// { id, children, dangerouslySet, lang = 'en' }
 AccessibilityButton.propTypes = {
   id: PropTypes.string,
   children: PropTypes.element,
   dangerouslySet: PropTypes.string,
   lang: PropTypes.string,
+  primaryColor: PropTypes.string,
+  secondaryColor: PropTypes.string,
+  buttonColor: PropTypes.string,
+  activePanels: PropTypes.arrayOf(PropTypes.string),
 };
 
 AccessibilityButton.defaultProps = {
@@ -539,6 +571,19 @@ AccessibilityButton.defaultProps = {
   children: undefined,
   dangerouslySet: undefined,
   lang: 'en',
+  primaryColor: '#921d5b',
+  secondaryColor: '#01364c',
+  buttonColor: '#fff',
+  activePanels: [
+    'textsize',
+    'fontfamily',
+    'linespacing',
+    'letterspacing',
+    'wordspacing',
+    'contrast',
+    'clickables',
+    'toc',
+  ],
 };
 
 export default AccessibilityButton;

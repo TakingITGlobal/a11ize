@@ -1,12 +1,6 @@
 // NOTE: ONLY USE em IN THIS FILE
 // Using rem will break when changing font size override
 
-$primary-color: #921d5b;
-$primary-color-hover: #731749;
-$secondary-color: #01364c;
-$a11y-button-color: #fff;
-$body-font-family: unset;
-
 /*
   UI STYLING
 */
@@ -31,17 +25,12 @@ $body-font-family: unset;
 .a11y-button {
   margin: 0;
   z-index: 100;
-  background-color: $primary-color;
-  color: $a11y-button-color;
+  background-color: var(--primary-color);
+  color: var(--a11y-button-color);
   border: 1px solid rgba(0,0,0,0);
 
-  &:hover, &:active, &:focus {
-    background-color: $primary-color-hover;
-    margin: 0;
-    z-index: 100;
-    background-color: $primary-color;
-    color: $a11y-button-color;
-    border: 1px solid rgba(0,0,0,0);
+  &:hover, &:focus {
+    filter: brightness(0.5);
   }
 }
 
@@ -50,8 +39,8 @@ $body-font-family: unset;
   font-size: 1rem;
   overflow: hidden;
   transform: translateX(100%);
-  background-color: $secondary-color;
-  color: $a11y-button-color;
+  background-color: var(--secondary-color);
+  color: var(--a11y-button-color);
   border: 1px solid rgba(0,0,0,0);
   z-index: 99;
   .active & {
@@ -60,9 +49,7 @@ $body-font-family: unset;
   }
 
   &:hover, &:active, &:focus {
-    padding: 0.5em;
-    background-color: $secondary-color;
-    color: $a11y-button-color;
+    filter: brightness(0.5);
   }
 }
 
@@ -129,7 +116,7 @@ $body-font-family: unset;
       width: 1.75em;
       margin: 0.25em;
       border-radius: 5px;
-      background: $primary-color;
+      background: var(--primary-color);
       content: ' ';
       transition: all 0.5s;
       left: 0;
@@ -138,7 +125,7 @@ $body-font-family: unset;
     &.on::before {
       left: 100%;
       transform: translateX(-2.25em);
-      background: $secondary-color;
+      background: var(--secondary-color);
     }
   }
 }
@@ -180,7 +167,7 @@ $body-font-family: unset;
   }
 
   option[value='Default'] {
-    font-family: $body-font-family !important;
+    font-family: unset !important;
   }
 }
 

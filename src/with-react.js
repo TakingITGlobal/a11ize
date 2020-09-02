@@ -7,7 +7,12 @@ import 'regenerator-runtime/runtime';
 
 const language = navigator.language ? navigator.language.split('-')[0] : 'en';
 
-const wrapper = document.getElementById('accessible-content');
+const userSettings = {
+  wrapperId: 'accessible-content',
+  ...window.A11ySettings, // override user settings
+};
+
+const wrapper = document.getElementById(userSettings.wrapperId);
 const children = wrapper.innerHTML;
 
 // Set Webpack's public path dynamically
@@ -22,6 +27,8 @@ if (wrapper) {
   console.log('Wrapper element found! Loading button...');
   ReactDOM.render(
     <A11yWrapper
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...userSettings}
       dangerouslySet={children}
       language={language}
       id="a11y-module"

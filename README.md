@@ -24,6 +24,30 @@ Check out a live demo at [https://risingyouth.ca](https://risingyouth.ca).
 
 - Ensure that text sizes are defined in `rem`s
 
+### Parameters
+
+All parameters are optional and default to the values below.
+
+```js
+{
+  primaryColor: '#921d5b',
+  secondaryColor: '#01364c',
+  buttonColor: '#fff', // text colour of the a11y button
+  activePanels: [ // enable/disable panels as needed
+    'textsize',
+    'fontfamily',
+    'linespacing',
+    'letterspacing',
+    'wordspacing',
+    'contrast',
+    'clickables',
+    'toc',
+  ],
+  // for non-React usage
+  wrapperId: 'accessible-content' // override the a11ize target element
+}
+```
+
 ### React usage
 
 Wrap the content you want to be modified by a11ize in the `AccessibilityButton`
@@ -42,18 +66,24 @@ tag.
 Add the id of `accessible-content` to an element so that it wraps the content you want a11ize to affect (generally the entire page).
 
 ```html
-<div id="accessible-content">
-  Site content here.
-</div>
+<div id="accessible-content">Site content here.</div>
+<script>
+  window.A11yOptions = {
+    ...options,
+  };
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@takingitglobal/a11ize@1/dist/with-react/index.js"></script>
 ```
 
 For wider browser compability, use the version with CoreJS bundled in.
 
 ```html
-<div id="accessible-content">
-  Site content here.
-</div>
+<div id="accessible-content">Site content here.</div>
+<script>
+  window.A11yOptions = {
+    ...options,
+  };
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@takingitglobal/a11ize@1/dist/with-react-cjs/index.js"></script>
 ```
 
@@ -73,4 +103,4 @@ Example YAML files are in `src/i18n/en.yml`. The translated text should match to
 ## To-do
 
 - [ ] Write tests (Help needed!)
-- [ ] Add CSS color parameters
+- [x] Add CSS color parameters
