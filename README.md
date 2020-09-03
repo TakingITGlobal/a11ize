@@ -26,9 +26,9 @@ a11ize is based on the Fluid [preferences framework](https://fluidproject.org/pr
 
 - Ensure that text sizes are defined in `rem`s
 
-### Parameters
+### Options
 
-All parameters are optional and default to the values below.
+All options are optional and default to the values below.
 
 ```js
 {
