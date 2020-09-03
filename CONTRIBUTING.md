@@ -1,6 +1,6 @@
 # Contributing
 
-As this project is currently in the early stages of development, we are not accepting any pull requests at this moment.
+Feel free to fork this repo, and open PRs against the master branch, or [report any issues encountered](https://github.com/TakingITGlobal/a11ize/issues)
 
 ## Commits
 
