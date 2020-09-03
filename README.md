@@ -70,7 +70,7 @@ Add the id of `accessible-content` to an element so that it wraps the content yo
 ```html
 <div id="accessible-content">Site content here.</div>
 <script>
-  window.A11ySettings = {
+  A11ySettings = {
     ...options,
   };
 </script>
@@ -82,7 +82,7 @@ For wider browser compability, use the version with CoreJS bundled in.
 ```html
 <div id="accessible-content">Site content here.</div>
 <script>
-  window.A11ySettings = {
+  A11ySettings = {
     ...options,
   };
 </script>
