@@ -26,28 +26,10 @@ a11ize is based on the Fluid [preferences framework](https://fluidproject.org/pr
 
 - Ensure that text sizes are defined in `rem`s
 
-### Options
+### Installation
 
-All options are optional and default to the values below.
-
-```js
-{
-  primaryColor: '#921d5b',
-  secondaryColor: '#01364c',
-  buttonColor: '#fff', // text colour of the a11y button
-  activePanels: [ // enable/disable panels as needed
-    'textsize',
-    'fontfamily',
-    'linespacing',
-    'letterspacing',
-    'wordspacing',
-    'contrast',
-    'clickables',
-    'toc',
-  ],
-  // for non-React usage
-  wrapperId: 'accessible-content' // override the a11ize target element
-}
+```
+npm install @takingitglobal/a11ize
 ```
 
 ### React usage
@@ -56,7 +38,7 @@ Wrap the content you want to be modified by a11ize in the `AccessibilityButton`
 tag.
 
 ```jsx
-  import A11yWrapper from 'a11ize';
+  import A11yWrapper from "@takingitglobal/a11ize"
   ...
   <A11yWrapper {...options}>
     Site content here.
@@ -90,6 +72,30 @@ For wider browser compability, use the version with CoreJS bundled in.
 ```
 
 Cache times on jsdelivr are relatively long, so if you want the latest release replace the `@1` with the version you'd like to use.
+
+### Options
+
+All options are optional and default to the values below.
+
+```js
+{
+  primaryColor: '#921d5b',
+  secondaryColor: '#01364c',
+  buttonColor: '#fff', // text colour of the a11y button
+  activePanels: [ // enable/disable panels as needed
+    'textsize',
+    'fontfamily',
+    'linespacing',
+    'letterspacing',
+    'wordspacing',
+    'contrast',
+    'clickables',
+    'toc',
+  ],
+  // for non-React usage
+  wrapperId: 'accessible-content' // override the a11ize target element
+}
+```
 
 ## Contributing
 
