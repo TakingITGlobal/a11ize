@@ -106,7 +106,7 @@ const A11yWrapper = ({
   useEffect(async () => {
     restoreState();
     // lazily load font
-    await import('./opendyslexic.scss');
+    await import('./opendyslexic.css');
   }, []);
 
   useEffect(() => {

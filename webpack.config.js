@@ -59,6 +59,10 @@ module.exports = [
           ],
         },
         {
+          test: /\.css$/,
+          loader: ['style-loader', 'css-loader'],
+        },
+        {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           use: {
