@@ -1,7 +1,7 @@
 import React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { withKnobs, text } from '@storybook/addon-knobs';
-import A11yWrapper from './A11yWrapper';
+import A11yWrapper from '../index';
 
 export default {
   title: 'a11ize',
