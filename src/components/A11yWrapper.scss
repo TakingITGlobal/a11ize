@@ -166,7 +166,7 @@
     }
   }
 
-  option[value='Default'] {
+  option[value='default'] {
     font-family: unset !important;
   }
 }
@@ -180,19 +180,19 @@
 }
 // font selections
 .font-times,
-option[value='Times'] {
+option[value='times'] {
   font-family: 'Times New Roman', Times, serif !important;
 }
 .font-dyslexic,
-option[value='Dyslexic'] {
+option[value='dyslexic'] {
   font-family: 'Open Dyslexic', sans-serif !important;
 }
 .font-arial,
-option[value='Arial'] {
+option[value='arial'] {
   font-family: Arial, Helvetica, sans-serif !important;
 }
 .font-verdana,
-option[value='Verdana'] {
+option[value='verdana'] {
   font-family: Verdana, Geneva, Tahoma, sans-serif !important;
 }
 
