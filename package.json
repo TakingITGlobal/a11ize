@@ -1,7 +1,7 @@
 {
   "name": "@takingitglobal/a11ize",
   "repository": "https://github.com/takingitglobal/a11ize.git",
-  "main": "src/index.js",
+  "main": "dist/bare/index.js",
   "jsdelivr": "dist/with-react-cjs/index.js",
   "version": "0.0.0-development",
   "description": "A React and JS Accessibility Toolkit",
@@ -19,16 +19,18 @@
     "access": "public"
   },
   "dependencies": {
-    "@babel/runtime": "^7.11.2",
+  },
+  "peerDependencies": {
     "classnames": "^2.2.6",
-    "core-js": "3",
-    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-icons": "^3.11.0"
+    "react-icons": "^3.11.0",
+    "prop-types": "^15.7.2"
   },
   "sideEffects": false,
   "devDependencies": {
+    "@babel/runtime": "^7.11.2",
+    "core-js": "3",
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.4",
     "@babel/plugin-transform-runtime": "^7.11.5",
