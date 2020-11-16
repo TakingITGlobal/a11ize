@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import getBundleURL from './getBundleUrl';
-import A11yWrapper from './components/A11yWrapper';
+import A11yWrapper from './index';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'regenerator-runtime/runtime';
 
