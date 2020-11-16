@@ -13,6 +13,7 @@ module.exports = [
   {
     entry: './src/index.js',
     externals: [nodeExternals()],
+    target: 'node',
     output: {
       filename: 'index.js',
       libraryTarget: 'commonjs2',
