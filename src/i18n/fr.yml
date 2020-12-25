@@ -1,38 +1,38 @@
-default: Défault
-up: Augmente
-down: Diminue
-toggle: Bascule
-on: Active
-off: Désactive
-currently: maintenant
-toggleOn: activé(e)
-toggleOff: désactivé(e)
+default: Police par défaut
+up: Augmenter
+down: Diminuer
+toggle: Basculer
+on: 'Activé'
+off: 'Désactivé'
+currently: actuellement
+toggleOn: 'activé'
+toggleOff: 'désactivé'
 
-open: Ouvre le menu de l'accessibilité
-close: Ferme le menu de l'accessibilité
-reset: Remets
-resetLabel: Remets les réglages de l'accessabilité
+open: Ouvrir le menu d'accessibilité
+close: Fermer le menu d'accessibilité
+reset: Réinitialiser
+resetLabel: Réinitialiser les paramètres d'accessibilité
 
-textSize: La Taille de Police
-textSizeLabel: Ajuste la taille de la police
-fontFamily: La Police
-fontFamilyLabel: Change la police de charactère utilisée
-lineHeight: L'Interligne
-lineHeightLabel: Ajuste l'interligne entre les lignes de texte
-letterSpacing: L'Espacement des Lettres
-letterSpacingLabel: Ajuste l'espacement entre les lettres
-wordSpacing: L'Espacement des Mots
-wordSpacingLabel: Ajuste l'espacement entre les mots
+textSize: Taille du texte
+textSizeLabel: Ajuster la taille du texte
+fontFamily: Style de police
+fontFamilyLabel: Changer la famille de polices utilisée
+lineHeight: Interligne
+lineHeightLabel: Ajuster l'espacement entre les lignes de texte
+letterSpacing: Espacement des lettres
+letterSpacingLabel: Ajuster l'espacement entre les lettres
+wordSpacing: Espacement des mots
+wordSpacingLabel: Ajuster l'espacement entre les mots
 theme: Contraste
-themeLabel: Change la couleur de la texte et du fond
-highlightClickables: Soulinge les Données
-highlightClickablesLabel: Soulinge les sections interactifs de la page
-toc: La Table des Matières
-tocLabel: Affiche une table des matières
+themeLabel: Changer les couleurs du texte et de l'arrière-plan
+highlightClickables: Accentuer les entrées
+highlightClickablesLabel: Accentuer les parties interactives de la page
+toc: Table des matières
+tocLabel: Afficher une table des matières
 
-themeDefault: Thème défault
-themeBw: 'Monochrome : Noir sur blanche'
-themeWb: 'Monochrome inversée : Blanche sur noir'
-themeBy: 'Haute contraste : Noir sur jaune'
-themeYb: 'Haute contraste inversée : Jaune sur noir'
-themeBrown: Blanche sur brun
+themeDefault: Thème par défaut
+themeBw: 'Monochrome: noir sur blanc'
+themeWb: 'Monochrome inversé: blanc sur noir'
+themeBy: 'Contraste élevé: noir sur jaune'
+themeYb: 'Contraste élevé inversé: jaune sur noir'
+themeBrown: Blanc sur marron
