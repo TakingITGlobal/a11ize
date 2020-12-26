@@ -23,28 +23,6 @@ module.exports = [
     module: {
       rules: [
         {
-          test: /\.module\.s(a|c)ss$/,
-          loader: [
-            'style-loader',
-            {
-              loader: 'css-loader',
-              options: {
-                modules: {
-                  exportLocalsConvention: 'dashes',
-                },
-                sourceMap: isDevelopment,
-              },
-            },
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: isDevelopment,
-                implementation: nodeSass,
-              },
-            },
-          ],
-        },
-        {
           test: /\.s(a|c)ss$/,
           exclude: /\.module\.(s(a|c)ss)$/,
           loader: [
