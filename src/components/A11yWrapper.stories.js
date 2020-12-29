@@ -19,8 +19,8 @@ export const a11yWrapper = () => {
       <div
         style={{
           display: 'flex',
-          'flex-direction': 'column',
-          'max-width': '400px',
+          flexDirection: 'column',
+          maxWidth: '400px',
           height: '150px',
           justifyContent: 'space-around',
         }}
