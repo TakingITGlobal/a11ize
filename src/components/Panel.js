@@ -28,7 +28,10 @@ Panel.propTypes = {
   id: PropTypes.string.isRequired,
   heading: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
   activePanels: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 

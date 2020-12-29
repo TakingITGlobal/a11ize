@@ -103,10 +103,13 @@ const A11yWrapper = ({
 
   // initial load
   const text = i18n[lang] ? i18n[lang] : i18n.en;
-  useEffect(async () => {
-    restoreState();
-    // lazily load font
-    await import('./opendyslexic.css');
+  useEffect(() => {
+    async function load() {
+      restoreState();
+      // lazily load font
+      await import('./opendyslexic.css');
+    }
+    load();
   }, []);
 
   useEffect(() => {
@@ -530,7 +533,10 @@ const A11yWrapper = ({
 
 A11yWrapper.propTypes = {
   id: PropTypes.string,
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
   dangerouslySet: PropTypes.string,
   lang: PropTypes.string,
   primaryColor: PropTypes.string,
@@ -541,7 +547,6 @@ A11yWrapper.propTypes = {
 
 A11yWrapper.defaultProps = {
   id: 'a11ize',
-  children: undefined,
   dangerouslySet: undefined,
   lang: 'en',
   primaryColor: '#921d5b',
