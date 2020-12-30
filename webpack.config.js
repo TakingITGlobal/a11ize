@@ -83,8 +83,8 @@ module.exports = [
           },
         },
         {
-          test: /\.(woff|woff2|eot|ttf|otf)$/,
-          loader: 'file-loader',
+          test: /\.(png|woff|woff2|eot|ttf|svg|otf)$/,
+          loader: 'url-loader?limit=100000',
         },
         {
           test: /\.ya?ml$/,
