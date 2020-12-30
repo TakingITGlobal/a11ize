@@ -19,9 +19,10 @@
     "access": "public"
   },
   "dependencies": {
-    "react-icons": "^3.11.0",
+    "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
-    "classnames": "^2.2.6"
+    "react-icons": "^3.11.0",
+    "url-loader": "^4.1.1"
   },
   "peerDependencies": {
     "react": "^16.13.1",
