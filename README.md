@@ -92,6 +92,7 @@ All options are optional and default to the values below.
     'clickables',
     'toc',
   ],
+  lang: 'en', // fallback to 'en' if set ISO code is not found
   // for non-React usage
   wrapperId: 'accessible-content' // override the a11ize target element
 }
@@ -106,7 +107,7 @@ Example YAML files are in `src/i18n/en.yml`. The translated text should match to
 
 ## Credits
 
-a11ize is largely inspired by [OCAD University's Infusion framework](https://github.com/fluid-project/infusion), which is a part of the Fluid Project. 
+a11ize is largely inspired by [OCAD University's Infusion framework](https://github.com/fluid-project/infusion), which is a part of the Fluid Project.
 We aimed to create a lighter, and more widely usable a11y toolkit that could work for any website with minimal modifications.
 
 ### Font Usage
