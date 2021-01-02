@@ -21,8 +21,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
-    "react-icons": "^3.11.0",
-    "url-loader": "^4.1.1"
+    "react-icons": "^3.11.0"
   },
   "peerDependencies": {
     "react": "^16.13.1",
@@ -67,6 +66,7 @@
     "sass-loader": "^10.0.1",
     "semantic-release": "^17.1.1",
     "style-loader": "^1.2.1",
+    "url-loader": "^4.1.1",
     "webpack": "^4.44.1",
     "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.12",
