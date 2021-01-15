@@ -27,6 +27,7 @@ const A11yWrapper = ({
   children,
   dangerouslySet,
   lang = 'en',
+  sticky = false,
   primaryColor = '#921d5b',
   secondaryColor = '#01364c',
   buttonColor = '#fff',
@@ -185,7 +186,11 @@ const A11yWrapper = ({
         '--a11y-button-color': buttonColor,
       }}
     >
-      <form className={styles.a11yMenu}>
+      <form
+        className={
+          sticky ? cx(styles.a11yMenu, styles.sticky) : styles.a11yMenu
+        }
+      >
         <div className={styles.menuWrapper}>
           <Panel
             id={`${id}-textsize`}
@@ -474,7 +479,7 @@ const A11yWrapper = ({
           className={cx(styles.a11yButton)}
           type="button"
           onClick={() => {
-            if (typeof window === 'object' && !active)
+            if (typeof window === 'object' && !active && !sticky)
               window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
             setActive(!active);
           }}
@@ -539,6 +544,7 @@ A11yWrapper.propTypes = {
   ]).isRequired,
   dangerouslySet: PropTypes.string,
   lang: PropTypes.string,
+  sticky: PropTypes.bool,
   primaryColor: PropTypes.string,
   secondaryColor: PropTypes.string,
   buttonColor: PropTypes.string,
@@ -549,6 +555,7 @@ A11yWrapper.defaultProps = {
   id: 'a11ize',
   dangerouslySet: undefined,
   lang: 'en',
+  sticky: false,
   primaryColor: '#921d5b',
   secondaryColor: '#01364c',
   buttonColor: '#fff',
