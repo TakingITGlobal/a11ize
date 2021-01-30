@@ -1,6 +1,6 @@
 import React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import A11yWrapper from '../index';
 
 export default {
@@ -10,7 +10,7 @@ export default {
 
 export const a11yWrapper = () => {
   return (
-    <A11yWrapper>
+    <A11yWrapper sticky={boolean('sticky', false)}>
       <h1>{text('Heading 1', 'This is Heading 1')}</h1>
       <h2>{text('Heading 2', 'This is Heading 2')}</h2>
       <h3>{text('Heading 3', 'This is Heading 3')}</h3>
