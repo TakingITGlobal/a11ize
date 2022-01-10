@@ -93,6 +93,7 @@ All options are optional and default to the values below.
     'toc',
   ],
   lang: 'en', // fallback to 'en' if set ISO code is not found
+  sticky: false, // make the menu stick to the top while scrolling
   // for non-React usage
   wrapperId: 'accessible-content' // override the a11ize target element
 }
